@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+  /* 移动端/平板：禁用点击时的半透明白色高亮，消除点格子闪白屏 */
+  -webkit-tap-highlight-color: transparent;
+  /* 禁止双击缩放，消除触屏点击 300ms 延迟 */
+  touch-action: manipulation;
+}
+
+/* SVG 地图：禁用触屏点按高亮，防止点击格子时整块白屏 */
+svg polygon, svg g, svg line, svg text {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
